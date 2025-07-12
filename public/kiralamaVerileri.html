@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminLTE Aside Example</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<style>
+    .ariza {
+        margin-left: 15rem;
+    }
+</style>
+
+
+<body class="sidebar-mini layout-fixed  " style="height: auto;">
+    <div class="wrapper">
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="/index.html" class="brand-link text-center">
+                <span class="brand-text font-weight-light">Araç Kiralama KDS</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Rezervasyon Accordion -->
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/araclar.html" class="nav-link">
+                                <!-- Replace 'fa-trowel-bricks' with the class for the icon you want -->
+                                <i class="nav-icon fa-solid fa-car"></i>
+                                <p>
+                                    Satın Alınabilecek Araçlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/kiralamaVerileri.html" class="nav-link">
+                                <i class="nav-icon fa-solid fa-turkish-lira-sign"></i>                                <p>
+                                    <p>
+                                    Kiralama Verileri
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/aracIstatistik.html" class="nav-link">
+                                <!-- Replace 'fa-microchip' with the class for the icon you want -->
+                                <i class="nav-icon fa-solid fa-list"></i>
+                                <p>
+                                    Mevcut Aracların İstatistikleri
+                                </p>
+                            </a>
+                        </li>
+
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ana_giris.html">
+                                <i class="fas fa-sign-out-alt"></i> Çıkış
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="table-container">
+                        <section id="optionSection1">
+                            <!-- Seçenek 1 İçeriği -->
+                            <h3>Seçenek 1</h3>
+                            <select id="selectOption1" class="form-select"></select>
+                        </section>
+                        <section id="optionSection2">
+                            <!-- Seçenek 2 İçeriği -->
+                            <h3>Seçenek 2</h3>
+                            <select id="selectOption2" class="form-select"></select>
+                        </section>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+                    <div class="col-12" >
+                        <canvas id="myChart" width="400" height="200"></canvas>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12" >
+                        <canvas id="myChart1" width="400" height="200"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- /.content-wrapper -->
+
+
+    </div>
+    <!-- ./wrapper -->
+
+    <script src="/js/kiralamaVerileri.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminLTE Aside Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<style>
+
+</style>
+
+
+<body class="sidebar-mini layout-fixed  " style="height: auto;">
+    <div class="wrapper">
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="/index.html" class="brand-link text-center">
+                <span class="brand-text font-weight-light">Araç Kiralama KDS</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Rezervasyon Accordion -->
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/araclar.html" class="nav-link">
+                                <!-- Replace 'fa-trowel-bricks' with the class for the icon you want -->
+                                <i class="nav-icon fa-solid fa-car"></i>
+                                <p>
+                                    Satın Alınabilecek Araçlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/kiralamaVerileri.html" class="nav-link">
+                                <!-- Replace 'fa-microchip' with the class for the icon you want -->
+                                <i class=" nav-icon fa-solid fa-turkish-lira-sign"></i>                                <p>
+                                    Kiralama Verileri
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview mb-3">
+                            <a href="/aracIstatistik.html" class="nav-link">
+                                <!-- Replace 'fa-microchip' with the class for the icon you want -->
+                                <i class="nav-icon fa-solid fa-list"></i>
+                                <p>
+                                    Mevcut Aracların İstatistikleri
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ana_giris.html">
+                                <i class="fas fa-sign-out-alt"></i> Çıkış
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-12 text-center">
+                                <h1>İstatistikler</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="table-container">
+                                <div class="col-12">
+                                    <table id="IstatistikTable" class="table table-bordered table-hover mt-3">
+                                        <!-- Your table content -->
+                                        <thead>
+                                            <tr>
+                                                <th>Araç ID</th>
+                                                <th>Marka</th>
+                                                <th>Model</th>
+                                                <th>Model Yıl</th>
+                                                <th>Motor</th>
+                                                <th>Kiralama Bedeli</th>
+                                                <th>Eldeki Araç Sayısı</th>
+                                                <th>Ortalama Kilometre</th>
+                                                <th>Bakım Makiyeti</th>
+                                                <th>Yıllık Vergi</th>
+                                                <th>Yakıt Tüketimi</th>
+                                                <th>Yakıt Türü</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="IstatistikTableBody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-lg-12 mb-lg-0 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Maliyetler</h3>
+                                    </div>
+                                    <div class="chart-container col-11">
+                                        <canvas id="stackedBarChart" class="chart" width="600" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-12 mb-lg-0 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Sorun Sayıları</h3>
+                                    </div>
+                                    <div class="chart-container col-6">
+                                        <canvas id="browserUsageChart" class="chart" width="600" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-12 mb-lg-0 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title"> KM</h3>
+                                    </div>
+                                    <div class="chart-container col-11">
+                                        <canvas id="barChart" class="chart" width="600" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+
+        <!-- ./wrapper -->
+        <script src="/js/sorunAdet.js"></script>
+        <script src="/js/aracIstatistik.js"></script>
+        <script src="/js/maliyet.js"></script>
+        <script src="/js/km.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+</body>
+
+</html>
