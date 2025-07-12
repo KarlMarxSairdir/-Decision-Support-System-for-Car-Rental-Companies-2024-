@@ -1,11 +1,12 @@
 # -Decision-Support-System-for-Car-Rental-Companies-2024
 
-system home screen
+ER Diagram
 <img width="856" height="479" alt="image" src="https://github.com/user-attachments/assets/d1f5e643-d973-4843-a02b-e9cdf8bbf20c" />
 
-Panel Comparing Available Vehicles and Showing Their Features
+system home screen
 <img width="968" height="451" alt="image" src="https://github.com/user-attachments/assets/45d11bfa-6ad2-4206-a589-11b45cf2d50e" />
 
+Panel Comparing Available Vehicles and Showing Their Features
 <img width="913" height="420" alt="image" src="https://github.com/user-attachments/assets/1fb1aa41-29aa-4b47-93f8-8678cb856b9c" />
 
 
